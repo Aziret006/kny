@@ -8,9 +8,24 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: "smooth" })
+    // Сразу закрываем меню
     setIsMenuOpen(false)
+    
+    // Даем время на анимацию закрытия меню перед скроллом
+    setTimeout(() => {
+      const element = document.getElementById(id)
+      if (element) {
+        // Учитываем высоту фиксированного хедера
+        const headerHeight = 80
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        })
+      }
+    }, 300) // Увеличил задержку для полного закрытия меню
   }
 
   const containerVariants = {
@@ -99,7 +114,7 @@ export default function Header() {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="md:hidden text-white hover:text-cyan-300 transition-colors"
+            className="md:hidden text-white hover:text-cyan-300 transition-colors p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <AnimatePresence mode="wait">
@@ -131,32 +146,34 @@ export default function Header() {
         {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.nav
+            <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden pb-6 space-y-3"
+              className="md:hidden overflow-hidden bg-blue-800/95 backdrop-blur-md rounded-lg mt-2"
             >
-              {[
-                { label: "О Нас", id: "about" },
-                { label: "Программы", id: "programs" },
-                { label: "Галерея", id: "gallery" },
-                { label: "Отзывы", id: "testimonials" },
-                { label: "Контакты", id: "contact" },
-              ].map((item, index) => (
-                <motion.button
-                  key={item.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left px-4 py-2 text-white hover:bg-blue-700 rounded-lg transition-colors"
-                >
-                  {item.label}
-                </motion.button>
-              ))}
-            </motion.nav>
+              <nav className="pb-4 space-y-2">
+                {[
+                  { label: "О Нас", id: "about" },
+                  { label: "Программы", id: "programs" },
+                  { label: "Галерея", id: "gallery" },
+                  { label: "Отзывы", id: "testimonials" },
+                  { label: "Контакты", id: "contact" },
+                ].map((item, index) => (
+                  <motion.button
+                    key={item.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    onClick={() => scrollToSection(item.id)}
+                    className="block w-full text-left px-4 py-3 text-white hover:bg-blue-700 rounded-lg transition-colors font-medium active:bg-blue-600"
+                  >
+                    {item.label}
+                  </motion.button>
+                ))}
+              </nav>
+            </motion.div>
           )}
         </AnimatePresence>
       </div>
