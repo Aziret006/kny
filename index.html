@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кыргызский Национальный Университет (КНУ)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">КНУ</div>
+                <nav class="nav">
+                    <a href="#about" class="nav-link">О нас</a>
+                    <a href="#programs" class="nav-link">Программы</a>
+                    <a href="#news" class="nav-link">Новости</a>
+                    <a href="#contact" class="nav-link">Контакты</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Slider -->
+    <section class="hero">
+        <div class="slider">
+            <div class="slide slide-1">
+                <div class="slide-content">
+                    <h1 class="slide-title">Кыргызский Национальный Университет</h1>
+                    <p class="slide-description">Ведущий университет Кыргызстана с 100-летней историей</p>
+                </div>
+            </div>
+            <div class="slide slide-2">
+                <div class="slide-content">
+                    <h1 class="slide-title">Качественное образование</h1>
+                    <p class="slide-description">Современные методы обучения и международные стандарты</p>
+                </div>
+            </div>
+            <div class="slide slide-3">
+                <div class="slide-content">
+                    <h1 class="slide-title">Успех наших студентов</h1>
+                    <p class="slide-description">Выпускники работают в ведущих компаниях по всему миру</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slider-controls">
+            <button class="slider-btn prev" onclick="prevSlide()">❮</button>
+            <button class="slider-btn next" onclick="nextSlide()">❯</button>
+        </div>
+
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">О КНУ</h2>
+            <div class="about-grid">
+                <div class="about-card fade-in">
+                    <div class="card-icon">📚</div>
+                    <h3>История</h3>
+                    <p>Основан в 1925 году, КНУ – это старейший и самый престижный университет Кыргызстана.</p>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="card-icon">👥</div>
+                    <h3>Студенты</h3>
+                    <p>Более 10 000 студентов из разных стран обучаются в нашем университете.</p>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="card-icon">🏫</div>
+                    <h3>Факультеты</h3>
+                    <p>12 факультетов предлагают образование в различных областях науки и техники.</p>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="card-icon">🌍</div>
+                    <h3>Международное сотрудничество</h3>
+                    <p>Партнерские отношения с университетами по всему миру.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="programs">
+        <div class="container">
+            <h2 class="section-title">Программы обучения</h2>
+            <div class="programs-grid">
+                <div class="program-card slide-up">
+                    <h3>Бакалавриат</h3>
+                    <p>4-годичная программа подготовки специалистов в различных областях</p>
+                    <button class="btn">Узнать подробнее</button>
+                </div>
+                <div class="program-card slide-up">
+                    <h3>Магистратура</h3>
+                    <p>2-годичная программа углубленной подготовки для специалистов</p>
+                    <button class="btn">Узнать подробнее</button>
+                </div>
+                <div class="program-card slide-up">
+                    <h3>Аспирантура</h3>
+                    <p>Подготовка научных кадров высшей квалификации</p>
+                    <button class="btn">Узнать подробнее</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news">
+        <div class="container">
+            <h2 class="section-title">Последние новости</h2>
+            <div class="news-grid">
+                <div class="news-card fade-in-left">
+                    <div class="news-image">📰</div>
+                    <h3>КНУ получил новый статус</h3>
+                    <p>Университет признан одним из лучших в регионе по качеству образования.</p>
+                    <span class="news-date">03.11.2025</span>
+                </div>
+                <div class="news-card fade-in-left">
+                    <div class="news-image">🎓</div>
+                    <h3>Выпускники добились успеха</h3>
+                    <p>Наши выпускники получили престижные стипендии в европейских университетах.</p>
+                    <span class="news-date">01.11.2025</span>
+                </div>
+                <div class="news-card fade-in-left">
+                    <div class="news-image">🌟</div>
+                    <h3>Новые лабораторные комплексы</h3>
+                    <p>Открыто два современных исследовательских центра для студентов.</p>
+                    <span class="news-date">30.10.2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Свяжитесь с нами</h2>
+            <div class="contact-content">
+                <div class="contact-info slide-right">
+                    <div class="contact-item">
+                        <h3>📍 Адрес</h3>
+                        <p>пр. Чингиза Айтматова, 547, Бишкек, Кыргызстан</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📞 Телефон</h3>
+                        <p>+996 (312) 43-45-00</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📧 Email</h3>
+                        <p>info@knu.kg</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">YouTube</a>
+                    </div>
+                </div>
+                <div class="contact-form slide-left">
+                    <input type="text" placeholder="Ваше имя" class="form-input">
+                    <input type="email" placeholder="Ваш email" class="form-input">
+                    <textarea placeholder="Ваше сообщение" class="form-input"></textarea>
+                    <button class="btn btn-submit">Отправить</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Кыргызский Национальный Университет. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
