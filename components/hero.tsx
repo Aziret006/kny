@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isHovered, setIsHovered] = useState('contact')
 
   const slides = [
     {
@@ -135,6 +136,10 @@ export default function Hero() {
               variants={childVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                setIsHovered(isHovered === 'contact' ? '' : 'contact');
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="px-8 py-4 bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-bold rounded-lg hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300"
             >
               Начать обучение
